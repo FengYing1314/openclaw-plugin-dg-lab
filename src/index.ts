@@ -8,6 +8,12 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
 
+type DGLabPluginConfig = {
+  port?: number;
+  serverIp?: string;
+  limitIntensity?: number;
+};
+
 // ─── 插件全局状态 ───
 let isEmotionModeOn = false;
 let limitIntensity = 40;           // 软件侧强度软上限 (0-200)
@@ -155,11 +161,24 @@ const FEEDBACK_LABELS: Record<number, string> = {
   5: 'B-1', 6: 'B-2', 7: 'B-3', 8: 'B-4', 9: 'B-5',
 };
 
+function resolveLimitIntensity(value: unknown): number {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return 40;
+  }
+  return Math.max(0, Math.min(200, Math.round(value)));
+}
+
 export default function registerPlugin(api: any) {
-  const config = api.config.plugins?.entries?.['openclaw-plugin-dg-lab']?.config || {};
-  const port = config.port || 18888;
-  const serverIp = config.serverIp || '127.0.0.1';
-  limitIntensity = config.limitIntensity ?? 40;
+  const config = (api.pluginConfig ?? {}) as DGLabPluginConfig;
+  const port =
+    typeof config.port === 'number' && Number.isFinite(config.port) && config.port > 0
+      ? Math.floor(config.port)
+      : 18888;
+  const serverIp =
+    typeof config.serverIp === 'string' && config.serverIp.trim()
+      ? config.serverIp.trim()
+      : '127.0.0.1';
+  limitIntensity = resolveLimitIntensity(config.limitIntensity);
 
   // ─── 1. 常驻后台服务 ───
   api.registerService({
@@ -478,7 +497,7 @@ export default function registerPlugin(api: any) {
   api.registerHook("message:sent", async (event: any) => {
     if (!isEmotionModeOn || isResting) return;
 
-    const text = event.context?.text || event.message?.text;
+    const text = typeof event?.context?.content === 'string' ? event.context.content : '';
     if (!text) return;
 
     const score = EmotionEngine.analyze(text);
