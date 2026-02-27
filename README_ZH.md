@@ -1,5 +1,9 @@
 # openclaw-plugin-dg-lab
 
+[![npm version](https://img.shields.io/npm/v/openclaw-plugin-dg-lab.svg)](https://www.npmjs.com/package/openclaw-plugin-dg-lab)
+![License](https://img.shields.io/npm/l/openclaw-plugin-dg-lab)
+![Visitor Count](https://count.getloli.com/get/@openclaw-plugin-dg-lab?theme=rule34)
+
 [English](README.md) | [中文](README_ZH.md)
 
 一个 [OpenClaw](https://github.com/openclaw/openclaw) 插件，用于通过 WebSocket 连接并控制 **郊狼 (DG-Lab) V3** 电刺激设备。

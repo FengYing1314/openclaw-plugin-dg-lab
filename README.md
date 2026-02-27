@@ -1,5 +1,9 @@
 # openclaw-plugin-dg-lab
 
+[![npm version](https://img.shields.io/npm/v/openclaw-plugin-dg-lab.svg)](https://www.npmjs.com/package/openclaw-plugin-dg-lab)
+![License](https://img.shields.io/npm/l/openclaw-plugin-dg-lab)
+![Visitor Count](https://count.getloli.com/get/@openclaw-plugin-dg-lab?theme=rule34)
+
 [English](README.md) | [中文](README_ZH.md)
 
 An [OpenClaw](https://github.com/openclaw/openclaw) plugin for connecting and controlling **DG-Lab (Coyote) V3** e-stim devices via WebSocket.
