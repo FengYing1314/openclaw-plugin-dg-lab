@@ -46,6 +46,7 @@ cd ~/.openclaw/workspace/plugins
 git clone https://github.com/FengYing1314/openclaw-plugin-dg-lab.git
 cd openclaw-plugin-dg-lab
 npm install
+npm run build
 
 # Link-install the plugin
 cd ~/.openclaw/workspace
