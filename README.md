@@ -45,7 +45,14 @@
 
 ## 安装
 
-**推荐方式 (通过 NPM 安装):**
+
+**一键安装（推荐）：**
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/FengYing1314/openclaw-plugin-dg-lab/main/install.sh)"
+```
+
+**通过 NPM 安装：**
 
 ```bash
 openclaw plugins install openclaw-plugin-dg-lab

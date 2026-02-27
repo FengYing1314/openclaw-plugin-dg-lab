@@ -45,7 +45,14 @@ An [OpenClaw](https://github.com/openclaw/openclaw) plugin for connecting and co
 
 ## Installation
 
-**Recommended (via NPM):**
+
+**One-click install (Recommended):**
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/FengYing1314/openclaw-plugin-dg-lab/main/install.sh)"
+```
+
+**NPM install:**
 
 ```bash
 openclaw plugins install openclaw-plugin-dg-lab
