@@ -218,3 +218,7 @@ This plugin implements the [DG-Lab V3 Socket Control Protocol](https://github.co
 ## License
 
 MIT © [FengYing](https://github.com/FengYing1314)
+
+## Acknowledgements
+
+Special thanks to [admilkjs](https://github.com/admilkjs/sse-dg-lab) for their open-source implementation of the `Dungeonlab+pulse:` waveform parsing engine! This allows the plugin to seamlessly import plaintext curve waveforms exported directly from the official DG-Lab App.
