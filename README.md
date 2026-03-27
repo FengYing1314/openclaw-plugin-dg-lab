@@ -218,3 +218,7 @@ DG-Lab App ←── WebSocket ──→ 插件 WS 服务器 ←── OpenClaw 
 ## 许可证
 
 MIT © [FengYing](https://github.com/FengYing1314)
+
+## 致谢 / Acknowledgements
+
+特别感谢 [admilkjs](https://github.com/admilkjs/sse-dg-lab) 提供的 `Dungeonlab+pulse:` 格式波形解析引擎的开源实现！这让本插件得以支持导入通过官方 App 直接导出的明文曲线波形。

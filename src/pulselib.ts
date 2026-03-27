@@ -8,6 +8,7 @@
  */
 import * as fs from 'fs';
 import * as path from 'path';
+import { parsePlaintextWaveform } from './waveform-parser';
 
 export interface PulsePreset {
   id: string;
@@ -89,6 +90,17 @@ function generateId(): string {
  * @returns 解析出的波形列表
  */
 export function parsePulsesContent(content: string, fileName?: string): PulsePreset[] {
+
+  const contentTrimmed = content.trim();
+  if (contentTrimmed.startsWith('Dungeonlab+pulse:')) {
+    const pulseData = parsePlaintextWaveform(contentTrimmed);
+    return [{
+      id: generateId(),
+      name: fileName ? path.basename(fileName, path.extname(fileName)) : 'Imported Plaintext Waveform',
+      pulseData: pulseData
+    }];
+  }
+
   const parsed = parseJson5(content);
   const results: PulsePreset[] = [];
 
